@@ -40,5 +40,7 @@
 *-blx.bib
 *.run.xml
 
+cache/
+
 #emacs extension
 *~

@@ -7,6 +7,7 @@ Progress :
 ## Data scrapping
 
 There are two ways to get OSM data :
+- use the OSMnx library : really complete
 - using Geofabrick : download and zip already .shp formats : great to use with geopands
     - See the near_eiffel_tower notebook
     - default : only a selection of towns/regions/countries : enough at least to starts with
@@ -27,6 +28,8 @@ The OSM files can be dowload through different ways :
 
 [OSM parser with python](https://oslandia.com/en/2017/07/03/openstreetmap-data-analysis-how-to-parse-the-data-with-python/)
 
+[Urban walkabity using OSMnx](https://gispofinland.medium.com/analysing-urban-walkability-using-openstreetmap-and-python-33815d045204)
+
 ### Database
 #### Geofabrik: download small chunks of osm mapping data and history files
 [Europe](https://osm-internal.download.geofabrik.de/europe.html),
@@ -41,7 +44,11 @@ https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.
 [osmium](https://osmcode.org/osmium-tool/), [documentation](https://osmcode.org/osmium-tool/manual.html)
 
 #### OSMnx: another library that can be used to extract data from OSM files
-https://github.com/gboeing/osmnx
+https://github.com/gboeing/osmnx, 
+https://github.com/GIScience/ohsome-py
+
+#### Ohsome : another library by Heildelberg university for historical data
+https://heigit.org/big-spatial-data-analytics-en/
 
 #### Cartiflette: for working with french geographic data sets
 https://github.com/InseeFrLab/cartiflette
@@ -51,4 +58,7 @@ https://pythonds.linogaliana.fr/geopandas/
 ### Ressources
 #### OSMwiki
 - tags (map features) for nodes on the map: https://wiki.openstreetmap.org/wiki/Map_features
-- projection of geographic coordinates: https://wiki.openstreetmap.org/wiki/Projection
+- projection of geographic coordinates: https://wiki.openstreetmap.org/wiki/Projection : OMS is in WGS-84
+
+#### Heigit
+https://heigit.org/big-spatial-data-analytics-en/ 
