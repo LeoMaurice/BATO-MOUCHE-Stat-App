@@ -1,4 +1,5 @@
-The files in this archive have been created from OpenStreetMap data
+# Geofabrik
+The files in the Ile-de-France-Geofabrik-free have been created from OpenStreetMap data
 and are licensed under the Open Database 1.0 License. See 
 www.openstreetmap.org for details about the project.
 
@@ -18,3 +19,7 @@ downloads.
 
 The particular set of data used there is originated from :
 https://download.geofabrik.de/europe/france/ile-de-france.html
+
+pois stands for Points of Interests
+
+# Pour OSM directement voir parseTest
