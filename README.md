@@ -10,7 +10,7 @@ Project on analysing OSM data
 [IdF](https://download.geofabrik.de/europe/france/ile-de-france.html)
 
 #### osmium: tool to parse osm files with python bindings pyosmium
-[osmium](https://osmcode.org/osmium-tool/)
+[osmium](https://osmcode.org/osmium-tool/), [documentation](https://osmcode.org/osmium-tool/manual.html)
 
 ### OSMnx: another library that can be used to extract data from OSM files
 https://github.com/gboeing/osmnx
@@ -28,7 +28,13 @@ https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.
 - tags (map features) for nodes on the map: https://wiki.openstreetmap.org/wiki/Map_features
 - projection of geographic coordinates: https://wiki.openstreetmap.org/wiki/Projection
 
-# Améliorations
+# Examples and inspirations
 
-## Sur les données OSM/Geofabrik
+## [OSM parser with python](https://oslandia.com/en/2017/07/03/openstreetmap-data-analysis-how-to-parse-the-data-with-python/)
+
+# Upgrades
+
+## On OSM/Geofabrik data
+- [ ] Téléchargement et dézippage à partir du lien geofabrik
+- [ ] Ou alternativement utiliser l'[API](https://www.openstreetmap.org/#map=10/45.0000/0.0000) d'OSM : voir le dossier ./example-code/
 - [ ] Obtenir les adresses
