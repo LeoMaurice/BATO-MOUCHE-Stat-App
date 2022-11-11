@@ -27,3 +27,8 @@ https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.
 ### OSMwiki
 - tags (map features) for nodes on the map: https://wiki.openstreetmap.org/wiki/Map_features
 - projection of geographic coordinates: https://wiki.openstreetmap.org/wiki/Projection
+
+# Améliorations
+
+## Sur les données OSM/Geofabrik
+- [ ] Obtenir les adresses
