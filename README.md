@@ -6,17 +6,18 @@ Project on analysing OSM data
 
 
 ### Geofabrik: download small chunks of osm mapping data and history files
-https://osm-internal.download.geofabrik.de/europe.html
+[Europe](https://osm-internal.download.geofabrik.de/europe.html),
+[IdF](https://download.geofabrik.de/europe/france/ile-de-france.html)
 
 #### osmium: tool to parse osm files with python bindings pyosmium
-osmcode.org/osmium-tool
+[osmium](https://osmcode.org/osmium-tool/)
 
 ### OSMnx: another library that can be used to extract data from OSM files
 https://github.com/gboeing/osmnx
 
-### cartiflette: working with geographic data sets
+### cartiflette: working with french geographic data sets
 https://github.com/InseeFrLab/cartiflette
-#and examples
+and examples
 https://pythonds.linogaliana.fr/geopandas/
 
 ### SIRENE API to get data for registered company in France and their locations

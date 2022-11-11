@@ -10,7 +10,13 @@
 *.fot
 *.cb
 *.cb2
-.*.lb
+*.lb
+*.cpg
+*.dbf
+*.prj
+*.shp
+*.shx
+
 
 ## Intermediate documents:
 *.dvi
