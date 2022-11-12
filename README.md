@@ -8,10 +8,10 @@ Project on analysing OSM data. Supervised by Paula Tramora and Sarah J. Berkemer
 
 - [ ] Datascrapping
   - [ ] Approfondir à partir de wiki la compréhension des tags
-  - [ ] Use the simplify fct of OSMnx
+  - [X] ~~Use the simplify fct of OSMnx~~
   - [ ] Filter user personnal data
 - [ ] First analysis
-  - [ ] Faire attention que les calculs sont des projections de GPS : biais
+  - [ ] Faire attention que les calculs sont des projections de GPS
     - Quelles types d'analyse sont effectuables :
       - textuelle sur le nom des POI et des rues ?
       - auto corrélation spatiale ? sur quelle catégorie ?
