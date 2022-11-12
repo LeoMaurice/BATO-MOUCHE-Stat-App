@@ -42,8 +42,8 @@
 *.run.xml
 
 cache/
-/.vscode/
 
+.vscode/
 
 #emacs extension
 *~
