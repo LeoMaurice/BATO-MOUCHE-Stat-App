@@ -2,8 +2,15 @@
 
 Project on analysing OSM data.
 Progress :
-- [ ] Datascrapping
-- [ ] First analys
+- [ ] Datascrapping :
+    - [ ] Approfondir à partir de wiki la compréhension des tags
+- [ ] First analysis
+    - [ ] Faire attention que les calculs sont des projections de GPS : biais
+    - Quelles types d'analyse sont effectuables :
+        - textuelle sur le nom des POI et des rues ?
+        - auto corrélation spatiale ? sur quelle catégorie ?
+        - faut t il faire des analyses sur les groupes de restaurants ?
+    - Importer d'autres types de données ? :velib, transports en commun, traffic ? opendata de la RATP ?
 ## Data scrapping
 
 There are two ways to get OSM data :
