@@ -131,15 +131,16 @@ def Donut chart
 
 def composition_chart(place): 
     names = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["amenity"]
-    #Remove values equal to 0
     size = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["how many"]
+    #Remove values equal to 0
 
     # add a circle at the center to transform it in a donut chart
     my_circle=plt.Circle( (0,0), 0.7, color='white')
 
 
     # Give color names
-    plt.pie(size, labels=names, colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    plt.pie(size, labels=names, autopct='%1.1f%%', pctdistance=0.85,
+            colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
     p = plt.gcf()
     p.gca().add_artist(my_circle)
 
@@ -149,17 +150,19 @@ def composition_chart(place):
 #### DONUT CHART FOR LOOKING AT RESTAURANTS, CULTURE AND EDUCATION ####
 #######################################################################
 
-def composition_chart(place): 
+def composition_chart2(place): 
     names = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["amenity"]
-    #Remove values equal to 0
     size = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["how many"]
+    #Remove values equal to 0
+
  
     # add a circle at the center to transform it in a donut chart
     my_circle=plt.Circle( (0,0), 0.7, color='white')
 
 
     # Give color names
-    plt.pie(size, labels=names, colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    plt.pie(size, labels=names, autopct='%1.1f%%', pctdistance=0.85,
+            colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
     p = plt.gcf()
     p.gca().add_artist(my_circle)
 
