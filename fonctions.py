@@ -10,7 +10,7 @@ import osmnx as ox
 import networkx as nx
 import numpy as np
 from tqdm.auto import tqdm 
-
+from palettable.colorbrewer.qualitative import Pastel1_7
 
 
 ##########################################
@@ -119,3 +119,53 @@ def count_amenities2(place) :
     
     df_amenities = pd.DataFrame(np.transpose(amenities), columns = ['amenity', 'how many'])
     return df_amenities
+
+
+############################################################
+##### DONUT CHART FOR LOOKING AT RESTAURANTS ONLY ##########
+############################################################
+
+"""
+def Donut chart 
+"""
+
+def composition_chart(place): 
+    names = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["amenity"]
+    #Remove values equal to 0
+    size = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["how many"]
+    plt.pie(size_of_groups)
+
+    # add a circle at the center to transform it in a donut chart
+    my_circle=plt.Circle( (0,0), 0.7, color='white')
+
+
+    # Give color names
+    plt.pie(size, labels=names, colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    p = plt.gcf()
+    p.gca().add_artist(my_circle)
+
+    plt.show()
+
+#######################################################################
+#### DONUT CHART FOR LOOKING AT RESTAURANTS, CULTURE AND EDUCATION ####
+#######################################################################
+
+def composition_chart(place): 
+    names = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["amenity"]
+    #Remove values equal to 0
+    size = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["how many"]
+    plt.pie(size_of_groups)
+
+    # add a circle at the center to transform it in a donut chart
+    my_circle=plt.Circle( (0,0), 0.7, color='white')
+
+
+    # Give color names
+    plt.pie(size, labels=names, colors=Pastel1_7.hex_colors, wedgeprops = { 'linewidth' : 7, 'edgecolor' : 'white' })
+    p = plt.gcf()
+    p.gca().add_artist(my_circle)
+
+    plt.show()
+    
+    
+    
