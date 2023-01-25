@@ -133,7 +133,6 @@ def composition_chart(place):
     names = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["amenity"]
     #Remove values equal to 0
     size = count_amenities(place)[(count_amenities(place)["amenity"] != "total") & (count_amenities(place)["how many"] != 0)]["how many"]
-    plt.pie(size_of_groups)
 
     # add a circle at the center to transform it in a donut chart
     my_circle=plt.Circle( (0,0), 0.7, color='white')
@@ -154,8 +153,7 @@ def composition_chart(place):
     names = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["amenity"]
     #Remove values equal to 0
     size = count_amenities2(place)[(count_amenities2(place)["amenity"] != "total") & (count_amenities2(place)["how many"] != 0)]["how many"]
-    plt.pie(size_of_groups)
-
+ 
     # add a circle at the center to transform it in a donut chart
     my_circle=plt.Circle( (0,0), 0.7, color='white')
 
