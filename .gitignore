@@ -49,3 +49,5 @@ cache/
 *~
 
 .vscode/settings.json
+
+*.pyc
