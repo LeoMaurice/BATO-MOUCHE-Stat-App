@@ -399,12 +399,16 @@ def calculate_distanceband_weights(gdf, idCol = "IdINSPIRE",geometryCol="geometr
     w_db = weights.distance.DistanceBand.from_dataframe(gdf,threshold=threshold,binary = False,radius = radius,geom_col = geometryCol, ids = idCol)
     # poids calculé en faisant la fonction inverse de la distance euclidienne entre les polygons (entre leurs centroids ?)
     # thresold de 1km <=> 15mn de marche à 4km/h
+    for id in gdf["IdINSPIRE"]:
+        w_db[id][id]=10.0
     full_matrix,ids = w_db.full()
-
+    max_weight = 10.0 * threshold
     weights_by_id = pd.DataFrame(index = ids)
     for i,id in enumerate(ids):
         weights_by_id = weights_by_id.join(pd.Series(index = ids,data=full_matrix[i],name=id))
+        weights_by_id[id][id] = max_weight
     gdf.set_index(idCol,inplace= True)
+    weights_by_id= weights_by_id/max_weight
     return weights_by_id
 
 def calculate_2SFCA_accessibility(gdf, interestsVar, weights_by_id,weight_age={
