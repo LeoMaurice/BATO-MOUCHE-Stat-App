@@ -481,10 +481,10 @@ def aggregating_from_dummies_on_grid(grid, osmgdf, geometry = "geometry"):
         grid[cat] = agg_nb_grid[cat]
     return grid
 
-def get_POI_cat_on_INSPIRE_grid(url :str, city : str = "Paris"):
+def get_POI_cat_on_INSPIRE_grid(url :str, place : str = "", city = "Paris, Ile-de-France, France"):
     pgdf = gpd.read_file(url)
     pgdf = pgdf.to_crs("EPSG:4326")
-    osmgdf = get_place_POI(city)
+    osmgdf = get_place_POI(place= place, city=city)
     # je comprend pas le warning  : j'ai projeté en WGS-84.
     return aggregating_from_dummies_on_grid(pgdf,osmgdf)
 
