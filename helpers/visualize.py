@@ -6,7 +6,7 @@ from matplotlib.colors import ListedColormap
 
 
 def folium_grid_cat_plot(gdf, var : str, cmap = 'Set1', 
-coordinates =(48.8534100,2.3488000),zoom_start=12.1, discrete = False):
+coordinates =(48.8534100,2.3488000),zoom_start=12.1, discrete = False, op = 0.6):
     if discrete:
         colors = colormaps[cmap](range(len(gdf[var].unique())))
         colors = ListedColormap(colors)
@@ -19,7 +19,7 @@ coordinates =(48.8534100,2.3488000),zoom_start=12.1, discrete = False):
             popup = True,
             cmap = colors,
             categorical = True,
-            style_kwds = dict(color = "black", opacity = 0.6,
+            style_kwds = dict(color = "black", opacity = op,
             fillOpacity = 0.4)
         )
     else:
@@ -31,7 +31,7 @@ coordinates =(48.8534100,2.3488000),zoom_start=12.1, discrete = False):
             tiles = 'OpenStreetMap',
             popup = True,
             cmap = cmap,
-            style_kwds = dict(color = "black", opacity = 0.6,
+            style_kwds = dict(color = "black", opacity = op,
             fillOpacity = 0.4)
         )
 
