@@ -12,6 +12,8 @@ from tqdm.auto import tqdm
 
 from pysal.lib import weights
 from pysal.lib import cg as geometry
+from pysal.model import spreg
+from spreg import OLS
 
 import plotly.express as px
 from palettable.colorbrewer.qualitative import Pastel1_7
@@ -624,6 +626,77 @@ def calculate_2SFCA_accessibility(gdf, interestsVar, weights_by_id,weight_age={
     # the following lambda function
     f = lambda s: calculate_2SFCA_accessibility_var(supply=s,demand=demand,weights_by_id=weights_by_id)
     return gdf[interestsVar].apply(f,axis = 0)
+
+def aggregate_2SFCA(gdf, 
+                    categories  = ['restaurant','culture and art', 'education', 'food_shops', 'fashion_beauty','supply_shops'],
+                    weight = True):
+    
+    """
+    gdf : gpd.GeoDataFrame
+    categories : list
+    weight : boolean (whether you want to weight each service by its importance in every day life)
+    
+    Returns an aggregated accessibility index based on each service accessibility indexes
+    """
+    
+    #we weight each service by its importance : 
+    for i in categories :
+        gdf[str("weight_" + i)] = gdf[i].sum()/(gdf[categories].sum(axis = 1).sum())
+    
+    if weight : 
+        for i in categories : 
+            gdf[str(i + "_access" + "_norm*weight")] = (gdf[str(i + "_access")].apply(lambda x : (x - gdf[str(i + "_access")].min())/(gdf[str(i + "_access")].max() - gdf[str(i + "_access")].min())))*(1 - gdf[str("weight_" + i)])
+        gdf["CS_aggregated"] = gdf[[i + "_access_norm*weight" for i in categories]].sum(axis = 1) 
+        
+    else : 
+        for i in categories : 
+            gdf[str(i + "_access" + "without_norm*weight")] = gdf[str(i + "_access")].apply(lambda x : (x - gdf[str(i + "_access")].min())/(gdf[str(i + "_access")].max() - gdf[str(i + "_access")].min()))
+        gdf["CS_aggregated_without_weight"] = gdf[[i + "_accesswithout_norm*weight" for i in categories]].sum(axis = 1) 
+        
+    return gdf
+
+
+
+#########################
+###### Regression #######
+#########################
+
+
+def LM_test(df,dep_var, indep_var, w) : 
+    
+    """ Lagrange Multiplier tests to choose regression 
+    df : DataFrame
+    dep_var : str (the variable we are interested in)
+    indep_var : list of str (the explanatory variables)
+    w : type of weight 
+    """
+    ols = OLS(df[[dep_var]].values, df[indep_var].values)
+    lms = spreg.LMtests(ols, w)
+    print("LM error test p_value for " + str(dep_var) + " : " + str(round(lms.lme[1],4)))
+    print("LM lag test p_value for " + str(dep_var) + " : " + str(round(lms.lml[1],4)))
+    print("Robust LM error test p_value for " + str(dep_var) + " : " + str(round(lms.rlme[1],4)))
+    print("Robust LM lag test p_value for " + str(dep_var) + " : " + str(round(lms.rlml[1],4)))
+    print("LM SARMA test p_value for " + str(dep_var) + " : " + str(round(lms.sarma[1],4)))
+
+    
+def reg_spatial(gdf, dep_var, indep_var, weight): 
+    """df : DataFrame
+    dep_var : str (the variable we are interested in)
+    indep_var : list of str (the explanatory variables)
+    weight : type of weight 
+    
+    Runs a SARMA regression taking into account heteroskedasticity
+    """
+    
+    m2 = spreg.GM_Combo_Het(
+    # Dependent variable
+    gdf[[dep_var]].values,
+    gdf[indep_var].values,
+    w=weight,
+    name_y=dep_var,
+    name_x= indep_var,) #SARMA Model
+
+    return m2
 
 
     #########################
