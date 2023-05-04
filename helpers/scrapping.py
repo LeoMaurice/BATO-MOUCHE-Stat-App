@@ -705,13 +705,15 @@ def reg_spatial(gdf, dep_var, indep_var, weight):
 
 def composition_chart(place : str, 
                       var = 'category', 
-                      tags = {"amenity": ["restaurant","cafe","bar","ice_cream","fast_food","pub","food_court","biergarten"]}, 
-                      categories = ["restaurant", "culture and art", "education"],
+                      tags = {"amenity": amenities, "shop" : shops},
+                      categories = categories_tags.keys(),
                       city = "Paris, Ile-de-France, France"): 
     
-    pois = get_place_POI(place, tags, categories, city)[1]
-    dic = counting_unique_subvalues(pois, var, relative= False)
-    names = names = [x for x in list(dic.keys()) if dic[x] != 0]
+    pois = get_place_POI(place, tags, categories, city)
+    dic = {}
+    for i in categories : 
+        dic[i] = pois[i].sum()
+    names = [x for x in list(dic.keys()) if dic[x] != 0]
     size = [x for x in list(dic.values()) if x != 0]
     #Remove values equal to 0
 
@@ -731,22 +733,24 @@ def composition_chart(place : str,
 
 def compare_places(places : list, 
                    var = 'category', 
-                   tags = {"amenity": ["restaurant","cafe","bar","ice_cream","fast_food","pub","food_court","biergarten"]},
-                   categories = ["restaurant", "culture and art", "education"],
+                   tags = {"amenity": amenities, "shop" : shops},
+                   categories = categories_tags.keys(),
                    city = "Paris, Ile-de-France, France") : 
     
     list_places = []
     list_var = []
     list_number = []
     for i in tqdm(range(len(places))):
-        pois = get_place_POI(places[i], tags, categories, city)[1]
-        dic = counting_unique_subvalues(pois, var, relative= False)
+        pois = get_place_POI(places[i], tags, categories, city)
+        dic = {}
+        for j in categories : 
+            dic[j] = pois[j].sum()
         for x in dic : 
             list_places.append(places[i])
             list_var.append(x)
             list_number.append(dic[x])
     df = pd.DataFrame({'Place' : list_places, 'Var' : list_var, 'Number' : list_number})
     fig = px.bar(df, x="Place", y = "Number", color = "Var", width=800, height=500)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     
-    return 
+    return fig
