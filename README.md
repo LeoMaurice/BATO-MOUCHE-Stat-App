@@ -2,19 +2,29 @@
 
 ## Description
 
-Project on analysing OSM data. Supervised by Paula Tubora and Sarah J. Berkemer.
+Project on analysing the morphology of cities (here Paris and its closest suburbs) using OSM data and meso-level data from INSEE. 
+
+By Simon GENET, Léopold MAURICE, Marie-Olive THAURY
+
+Supervised by Paula Tubora and Sarah J. Berkemer.
 
 Paper submited to [CCS France](https://iutdijon.u-bourgogne.fr/ccs-france/).
 
+Made during studies at ENSAE.
+
 ### Progress
 
-- [ ] Datascrapping
-  - [ ] Choice of OSM tags and creation of variables of interests
-  - [ ] Creation of "ethnic food" variables ?
-  - [ ] Choice of INSEE's variables
-- [ ] First analysis
+- [X] Datascrapping
+  - [X] At Paris level
+  - [X] At the *Petite Couronne* level
+  - Merging OSM data on INSEE's INSPIRE Squares.
+- [X] Analysis
   - [X] Restaurants accessibility, Gini inequality
-  - [ ] see this [blog](https://geographicdata.science/book/notebooks/09_spatial_inequality.html) for more ideas
+  - [X] Descriptive data
+  - [X] Regressions
+  - [X] Clustering
+  - [X] Dimensionnality Reduction
+
 # Data
 
 ## INSEE socio-economic data : 
@@ -46,7 +56,7 @@ There are multiple ways to get OSM data :
 The OSM files can be dowload through different ways :
 
 - through the [OSM API](https://www.openstreetmap.org/export) : limited, for instance we can't d.ownload the whole Paris (seems logical)
-- through API Overpass : mirror data from OSM, without the limitation. Hard to use : encapsulated in OSMnx.
+- through API Overpass : mirror data from OSM, without the limitation. Hard to use on its own -> encapsulated in OSMnx.
 - through Planet OSM : regular copies.
 - through [Geofabrik](https://www.geofabrik.de) : regular copies but only a selection of towns/regions/countries. (Geofabrik already suppress user data but the rest of the metadata are the same). Copies diponible in .osm and .shp.
 - through [Ohsome](https://hex.ohsome.org/) : for historical data analysis. Comes with an API and a python library.
@@ -85,7 +95,9 @@ Ltd, Gispo. « [Analysing urban walkability using OpenStreetMap and Python](htt
 
 [Commerces de proximité par l'INSEE](https://www.insee.fr/fr/statistiques/4986837?sommaire=4987235)
 
-## Scientific articles
+[Cartographie du logement social à Paris par l'APUR](https://www.apur.org/fr/nos-travaux/cartographie-logement-social-paris-situation-1er-janvier-2019)
+
+## Scientific articles (selection)
 
 Berkemer, Sarah J., et Peter F. Stadler. « Street Name Data as a Reflection of Migration and Settlement History ». Urban Science 4, nᵒ 4 (11 décembre 2020): 74. [doi.org/10.3390/urbansci4040074](https://doi.org/10.3390/urbansci4040074).
 
