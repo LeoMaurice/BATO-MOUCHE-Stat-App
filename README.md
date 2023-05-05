@@ -1,8 +1,8 @@
-# BATO-MOUCHE
+# BATO-MOUCHE/Stat'App
 
 ## Description
 
-Project on analysing the morphology of cities (here Paris and its closest suburbs) using OSM data and meso-level data from INSEE. 
+Student Project on analysing the morphology of cities (here Paris and its closest suburbs) using OSM data and meso-level data from INSEE. 
 
 By Simon GENET, Léopold MAURICE, Marie-Olive THAURY
 
@@ -29,7 +29,7 @@ All requirements are contained in environment.yml for conda, or requirements.txt
 - [X] Datascrapping
   - [X] At Paris level
   - [X] At the *Petite Couronne* level
-  - Merging OSM data on INSEE's INSPIRE Squares.
+  - [X] Merging OSM data on INSEE's INSPIRE Squares.
 - [X] Analysis
   - [X] Restaurants accessibility, Gini inequality
   - [X] Descriptive data
