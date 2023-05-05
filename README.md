@@ -12,6 +12,18 @@ Paper submited to [CCS France](https://iutdijon.u-bourgogne.fr/ccs-france/).
 
 Made during studies at ENSAE.
 
+## Organization of the repository
+
+All requirements are contained in environment.yml for conda, or requirements.txt for pip. Sadly, no docker.
+
+- data folder contains the data for Paris analysis.
+- examples_archive and first-example-code contains several explorations
+- helpers contains most of the home made functions
+- kmean_interp is a [library](https://github.com/YousefGh/kmeans-feature-importance) to interpret KMeans clusters through classificators of dummy variable of each cluster. Not really used.
+- extract_filosofi_data.ipynb explains how to extract filosofi data, and how to merge them with OSM data
+- paris_local_composition explains the analysis and the use of the function on Paris data
+- pc_local_composition does the same but simpler on petite couronne data, you may want to look at it to have a good understanding of the analysis.
+
 ### Progress
 
 - [X] Datascrapping
