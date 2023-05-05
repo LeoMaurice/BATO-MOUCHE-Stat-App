@@ -24,7 +24,7 @@ All requirements are contained in environment.yml for conda, or requirements.txt
 - paris_local_composition explains the analysis and the use of the function on Paris data
 - pc_local_composition does the same but simpler on petite couronne data, you may want to look at it to have a good understanding of the analysis.
 
-### Progress
+## Progress
 
 - [X] Datascrapping
   - [X] At Paris level
